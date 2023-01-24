@@ -27,7 +27,7 @@
                  <td  th:text="${#numbers.formatCurrency(item.discount)}">1657.23</td>
                  <td  th:text="${item.formatDate}">1996-02-02</td>
                  <td>
-                    <a role="button" style="color:white; background-color: #263238" class="table-button">Update</a>
+                    <a role="button" style="color:white; background-color: #263238" class="table-button" th:href="@{/(id = ${item.id})}">Update</a>
                  </td>
               </tr>
            </table>
