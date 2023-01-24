@@ -3,6 +3,7 @@ package com.ltp.globalsuperstore;
 import jdk.jfr.Category;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class item {
@@ -13,6 +14,10 @@ public class item {
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date date;
 
+    public String getFormatDate() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        return formatter.format(date);
+    }
     public void setCategory(String category) {
         this.category = category;
     }
