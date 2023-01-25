@@ -21,12 +21,12 @@ public class item {
         return formatter.format(date);
     }
 
-    public void setId(String id){
+    public void setId(String id){  //here it is set to old id during update
         this.id = id;
     }
 
     public String getId() {
-        return this.id;
+        return this.id;        //when we click on update got a new id
     }
 
     public void setCategory(String category) {

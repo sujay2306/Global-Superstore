@@ -8,7 +8,9 @@
             <a  th:href="@{/}" >Form</a>
             <a class="active" th:href="@{/inventory}">Inventory</a>
         </div>
-   
+        <div class="alert success" th:if="${status} == 'success'">
+            <strong>You submitted the item successfully</strong>
+        </div>
         <div class="container">
            <table>
               <tr class="head">
