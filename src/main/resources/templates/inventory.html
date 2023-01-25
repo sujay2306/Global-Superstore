@@ -11,6 +11,9 @@
         <div class="alert success" th:if="${status} == 'success'">
             <strong>You submitted the item successfully</strong>
         </div>
+        <div class="alert" th:if="${status} == 'failed'">
+            <strong>failed to submit the order, order date modification should be within 5 days </strong>
+        </div>
         <div class="container">
            <table>
               <tr class="head">
