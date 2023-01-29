@@ -1,94 +1,79 @@
 package com.ltp.globalsuperstore;
 
-import com.sun.jdi.event.StepEvent;
-import jdk.jfr.Category;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.validation.constraints.Future;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-public class item {
-    @NotBlank(message = "field cannot be left blank")
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+public class Item {
+
+    @NotBlank(message = "Please select a category")
     private String category;
-    @NotBlank(message = "field cannot be left blank")
+    @NotBlank(message = "Name cannot be blank")
     private String name;
-    @Min(value = 0, message = "price cannot be negative")
+    @Min(value = 0, message = "Price cannot be negative")
     private Double price;
-    @Min(value = 0, message = "discount cannot be negative")
+    @Min(value = 0, message = "Discount cannot be negative")
     private Double discount;
-    @Past(message = "Date must be of future")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @Past(message = "Date must be of the past")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
     private String id;
-    public String getFormatDate() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        return formatter.format(date);
-    }
 
-    public void setId(String id){  //here it is set to old id during update
-        this.id = id;
+    public Item() {
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getId() {
-        return this.id;        //when we click on update got a new id
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCategory() {
+        return this.category;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Double getPrice() {
+        return this.price;
     }
 
     public void setPrice(Double price) {
         this.price = price;
     }
 
+    public Double getDiscount() {
+        return this.discount;
+    }
+
     public void setDiscount(Double discount) {
         this.discount = discount;
+    }
+
+    public Date getDate() {
+        return this.date;
     }
 
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public Double getDiscount() {
-        return discount;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public item(String category, String name, Double discount, Double price, Date date){
-        this.name = name;
-        this.discount = discount;
-        this.category = category;
-        this.price = price;
-
-        this.date = date;
-
-    }
-
-    public item(){
-        this.id = UUID.randomUUID().toString();
-    }
 }
