@@ -13,12 +13,10 @@
             <form method="post" th:object="${item}" th:action="@{/submitItem}">
                 <p style="color:red" th:errors = "*{category}"></p>
                 <select class="select" th:field="*{category}">
-                    <option style="color:blue" value="">MacBook Air M2</option>
-                    <option style="color:blue" value="">Mac Studio</option>
-                    <option style="color:blue" value="">Air Pods</option>
-                    <option style="color:blue" value="">Air Pods Max</option>
-
-                    <option th:each="category: ${categories}" th:text="${category}" th:value="${category}"> Placeholder </option>
+                    <option style="color:blue" value="">Choose Category</option>
+                    <option style="color:blue" value="Furniture">Furniture</option>
+                    <option style="color:blue" value="Office Supplies">Office Supplies</option>
+                    <option style="color:blue" value="Technology">Technology</option>
                 </select>
                 <p style="color:red" th:errors = "*{name}"></p>
                 <input type="text" placeholder="Name" th:field="*{name}">
